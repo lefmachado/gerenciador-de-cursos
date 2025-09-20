@@ -16,12 +16,10 @@ public class TestaPerformance {
 
         long inicio = System.currentTimeMillis();
 
-        // Adiciona 50.000 números ao conjunto
         for (int i = 1; i <= 50000; i++) {
             numeros.add(i);
         }
 
-        // Verifica se cada um dos 50.000 números está contido no conjunto
         for (Integer numero : numeros) {
             numeros.contains(numero);
         }
@@ -30,7 +28,6 @@ public class TestaPerformance {
 
         long tempoDeExecucao = fim - inicio;
 
-        // Saída final usando o logger
         logger.info("Tempo gasto na operação: {} ms", tempoDeExecucao);
     }
 }
