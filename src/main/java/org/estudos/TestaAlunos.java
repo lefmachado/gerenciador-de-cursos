@@ -1,9 +1,14 @@
 package org.estudos;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.HashSet;
 import java.util.Set;
 
 public class TestaAlunos {
+
+    private static final Logger logger = LoggerFactory.getLogger(TestaAlunos.class);
 
     public static void main(String[] args) {
         Set<String> alunos = new HashSet<>();
@@ -15,16 +20,16 @@ public class TestaAlunos {
         alunos.add("Aluno 6");
 
         boolean alunoVerificado = alunos.contains("Aluno 1");
-        System.out.println("Aluno 1 está presente? " + alunoVerificado);
+        logger.info("Aluno 1 está presente? {}", alunoVerificado);
 
-        System.out.println(alunos.size());
+        logger.info("Total de alunos no conjunto: {}", alunos.size());
 
+        logger.info("--- Imprimindo alunos com for-each ---");
         for (String aluno : alunos) {
-            System.out.println(aluno);
+            logger.info(aluno);
         }
 
-        alunos.forEach(aluno -> {
-            System.out.println("Aluno: " + aluno);
-        });
+        logger.info("--- Imprimindo alunos com lambda forEach ---");
+        alunos.forEach(aluno -> logger.info("Aluno: {}", aluno));
     }
 }
